@@ -1,0 +1,44 @@
+import java.util.Scanner;
+
+public class AplicativoDesconto {
+
+    private static final String CUPOM_100 = "CUPOM100";
+    private static final String CUPOM_200 = "CUPOM200";
+    private static final double DESCONTO_100 = 100.0;
+    private static final double DESCONTO_200 = 200.0;
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        double valorTotal = solicitarValorCompra(scanner);
+        String cupom = solicitarCupom(scanner);
+        
+        scanner.close();
+
+        valorTotal = aplicarDesconto(valorTotal, cupom);
+
+        System.out.printf("O valor total da compra é: %.2f%n", valorTotal);
+    }
+
+    private static double solicitarValorCompra(Scanner scanner) {
+        System.out.println("====================================");
+        System.out.println("Informe o valor total da sua compra: ");
+        return scanner.nextDouble();
+    }
+
+    private static String solicitarCupom(Scanner scanner) {
+        System.out.print("Informe o Cupom de Desconto: ");
+        return scanner.next();
+    }
+
+    private static double aplicarDesconto(double valorTotal, String cupom) {
+        if (cupom.equalsIgnoreCase(CUPOM_100)) {
+            valorTotal -= DESCONTO_100; // CUPOM QUE DÁ 100 REAIS DE DESCONTO
+        } else if (cupom.equalsIgnoreCase(CUPOM_200)) {
+            valorTotal -= DESCONTO_200; // CUPOM QUE DÁ 200 REAIS DE DESCONTO
+        } else {
+            System.out.println("Cupom inválido."); // CASO NÃO SEJA NENHUM DOS DOIS CUPOM, ELE DÁ CUPOM INVÁLIDO
+        }
+        return valorTotal;
+    }
+}
