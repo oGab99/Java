@@ -1,0 +1,55 @@
+import javax.swing.JOptionPane;
+
+public class ExercicioRepita {
+    public static void main(String[] args) {
+        
+        int n = 0; // Número
+        int s = 0; // Soma dos valores
+        int count = 0; // Contador de elementos
+        int pares = 0; // Contador de valores pares
+        int impares = 0; // Contador de valores ímpares
+        int acimaDe100 = 0; // Contador de valores acima de 100
+        
+        do {
+            n = Integer.parseInt(JOptionPane.showInputDialog(null, 
+                    "<html>Informe um Número: <br>(Valor 0 Interrope)</html>"));
+            
+            // Interrompe sem considerar o valor 0 na contagem e soma
+            if (n == 0) {
+                break;
+            }
+            
+            s += n; // Soma o valor de n ao total digitado
+            count++; // Contador de Elementos
+            
+            // Verifica se o número é par ou ímpar
+            if (n % 2 == 0) {
+                pares++;
+            } else {
+                impares++;
+            }
+            
+            // Verifica se o número é maior que 100
+            if (n > 100) {
+                acimaDe100++;
+            }
+   
+        } while(n != 0);
+        
+        // Cálculo da média após o loop
+        double m = (double) s / count;
+
+        JOptionPane.showMessageDialog(null, 
+                    "<html>Valor Total Somado: " + s +
+                        "<br>Total de Números Digitados: " + count + 
+                        "<br>Total de Valores Pares: " + pares + 
+                        "<br>Total de Valores Ímpares: " + impares +
+                        "<br>Acima de 100: " + acimaDe100 +
+                        "<br>Média dos Valores: " + m + "</html>",
+                    "Resultados", 
+                    JOptionPane.INFORMATION_MESSAGE);
+
+        
+    }
+    
+}
