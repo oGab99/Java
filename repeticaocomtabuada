@@ -1,0 +1,24 @@
+// Exercicio feito em Aulas Extras do Senac
+
+import java.util.Scanner;
+import java.util.Random;
+
+public class repetição {
+
+public static void main(String[] args) {
+    Scanner ler = new Scanner(System.in);
+
+    System.out.println("Informe um Numero p/ calcular a tabuada: ");
+    int num = ler.nextInt();
+
+    int volta = 0;
+
+    while (volta <= 10){
+    int mult = num * volta;
+    
+    System.out.printf("%d x %d = %d \n", num, volta, mult);
+    
+    volta++;
+    }
+  }
+}
